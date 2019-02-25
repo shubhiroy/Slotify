@@ -7,6 +7,12 @@
     <title>Welcome to Slotify</title>
 </head>
 <body>
-    This is the register page.
+    <form action="index.php" id="inputContainer">
+        <label for="loginUsername">Username :  </label>
+        <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. bartSingh" required><br><br>
+        <label for="loginPassword">Password  :   </label>
+        <input id="loginPassword" name="loginPassword" type="password" required><br><br>
+        <button type="login" name="loginButton">Log In</button>
+    </form>
 </body>
 </html>
