@@ -24,8 +24,11 @@
 <body>
     <form action="register.php" id="inputContainer" method="POST">
         <h2>Login to your account</h2><br><br>
+        <?php
+            echo($account->getError(Constants::$loginFailed));
+        ?><br>
         <label for="loginUsername">Username :  </label>
-        <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. bartSingh" required><br><br>
+        <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. bartSingh" value="<?php getInputValue('loginUsername') ?>" required><br><br>
         <label for="loginPassword">Password  :   </label>
         <input id="loginPassword" name="loginPassword" type="password" placeholder="Your password" required><br><br>
         <button type="submit" name="loginButton" id="loginButton">LOG IN</button><br><br>

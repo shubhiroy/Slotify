@@ -3,6 +3,10 @@
         $sanitizer = new Sanitizer();
         $loginUsername = $sanitizer->usernameSanitizer($_POST['loginUsername']);
         $loginPassword = $sanitizer->passwordSanitizer($_POST['loginPassword']);
-        echo($loginUsername . " " . $loginPassword);
+
+        $isSuccessful = $account->login($loginUsername,$loginPassword);
+        if($isSuccessful){
+            header("Location: index.php");
+        }
     }
 ?>

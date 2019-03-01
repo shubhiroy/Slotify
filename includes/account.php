@@ -9,6 +9,10 @@ class Account{
         $this->connection = $connection;
     }
     
+    public function login($un, $pw){
+        return $this->checkUserLoginDetails($un,$pw);
+    }
+
     public function register($un, $fn, $ln, $em, $em2, $pw, $pw2){
         $this->validateUsername($un);
         $this->validateFirstName($fn);
@@ -28,6 +32,18 @@ class Account{
             return  "";
         }
         return $err.'<br>';
+    }
+
+    private function checkUserLoginDetails($un, $pw){
+        $encryptedpw = md5($pw);
+        $querry = "Select * from users where username = '$un' and password = '$encryptedpw'";
+        $result = mysqli_query($this->connection,$querry);
+        if(mysqli_num_rows($result) == 1){
+            return true;
+        }else{
+            array_push($this->errArray,Constants::$loginFailed);
+            return false;
+        }    
     }
 
     private function insertUserDetails($un,$fn,$ln,$em,$pw){

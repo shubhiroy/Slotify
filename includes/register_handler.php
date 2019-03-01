@@ -12,7 +12,7 @@
         $wasSuccessful = $account->register($username,$firstname,$lastname,$email,$email2,$password,$password2);
         echo($wasSuccessful);
         if($wasSuccessful){
-            header("Location: register.php");
+            header("Location: index.php");
         }
     }
 ?>
