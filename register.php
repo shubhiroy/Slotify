@@ -1,7 +1,7 @@
 <?php
+  include_once("includes/config.php");
   include_once("includes/sanitizer.php");
   include_once("includes/account.php");
-  include_once("includes/config.php");
   include_once("includes/constants.php");
   $account = new Account($connection);
   include_once("includes/register_handler.php");

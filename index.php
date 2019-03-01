@@ -1,3 +1,12 @@
+<?php
+    include("includes/config.php");
+    if(isset($_SESSION['userLoggedIn'])){
+        $username = $_SESSION['userLoggedIn'];
+    }else{
+        header("Location: register.php");
+    }
+    // unset($_SESSION['userLoggedIn']); // LOG OUT
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
