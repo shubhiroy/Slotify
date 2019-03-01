@@ -8,7 +8,11 @@
         $email2 = $sanitizer->emailSanitizer($_POST['email2']);
         $password = $sanitizer->passwordSanitizer($_POST['password']);
         $password2 = $sanitizer->passwordSanitizer($_POST['password2']);
-        
-        $account->register($username,$firstname,$lastname,$email,$email2,$password,$password2);
+
+        $wasSuccessful = $account->register($username,$firstname,$lastname,$email,$email2,$password,$password2);
+        echo($wasSuccessful);
+        if($wasSuccessful){
+            header("Location: register.php");
+        }
     }
 ?>
