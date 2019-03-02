@@ -1,0 +1,192 @@
+html,
+body{
+    padding: 0%;
+    margin: 0%;
+    background: url(../images/registerpage_bg2.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#background{
+    /* background: url(../images/registerpage_bg2.jpg) no-repeat; */
+    /* background-color: rgb(187, 187, 187); */
+    /* background: url(../images/registerpage_bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: table;
+    height: 100%;
+    width: 100%; */
+}
+
+ /* *********  LOGIN CONTAINER   ********** */
+
+#loginContainer{
+    /* background-color: black; */
+    position: relative;
+    color:#fff;
+    font-family: "Helvetica Neue","Helvetica","sans-serif","Aerial";
+    font-weight: normal;
+    line-height:1em;
+    box-sizing:border-box;
+}
+
+#loginContainer{
+    width:80%;
+    margin:0 auto;
+    position:relative;
+    max-width: 1024px;
+}
+
+/* *********  INPUT CONTAINER   ********** */
+
+#inputContainer{
+    float: left;
+    width: 400px;
+    padding: 45px;
+    border-right: 1px solid #999 
+}
+
+#inputContainer label{
+    display:block;
+}
+
+#inputContainer h2{
+    display: block;
+    text-align: center;
+    margin-bottom: 0;
+    font-family: cursive;
+}
+
+#inputContainer input[type="text"],
+input[type="email"],
+input[type="password"]{
+    display: block;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    width: 80%;
+    height: 27px;
+    line-height: 1em;
+    margin-top: 5px;
+    color: #fff;
+}
+
+#inputContainer input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus{
+    outline: none;
+    display: block;
+}
+
+#inputContainer button:hover, #inputContainer button:focus{
+    cursor: pointer;
+    outline: none;
+    font-weight:bold;
+    box-shadow:#999;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fff;
+    padding-left: 3px;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #fff;
+   padding-left: 3px;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #fff;
+   padding-left: 3px;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #fff;
+   padding-left: 3px;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #fff;
+   padding-left: 3px;
+}
+::placeholder { /* Most modern browsers support this now. */
+   color:    #fff;
+   padding-left: 3px;
+}
+
+#inputContainer label{
+    color: #ccc;
+    font-weight: bolder;
+    font-family: auto;
+    font-size: 20px;
+    display: block;
+}
+
+#inputContainer button{
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 250px;
+    color: #fff;
+    margin: 5px auto;
+    height: 40px;
+    width: 80%;
+    font-size: larger;
+    font-weight: 900;
+}
+
+#hideRegister,#hideLogIn{
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+#hideRegister:active, #hideLogIn:active{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hasAccountText{
+    text-align: center;
+    width:80%;
+}
+
+#registerForm, #loginForm{
+    display: none;
+}
+
+#inputContainer .errorMessage{
+    display: block;
+    font-size: 15px;
+    color: #f01313;
+}
+/* *********  LOGIN TEXT   ********** */
+
+#loginText{
+    padding-left: 50px;
+    padding-top: 25px;
+    display: table;
+} 
+
+#loginText h1{
+    font-size: 300%;
+    font-weight: bold;
+    line-height: 1em;
+    color: #dfb416;
+}
+
+#loginText h2{
+    margin: 30px 0;
+}
+
+#loginText ul{
+    padding: 0;
+}
+
+#loginText li{
+    padding: 10px 33px;
+    font-family: initial;
+    font-size: 22px;
+    list-style-type: none;
+    background: url(../images/icons/trebleclef.png) no-repeat;
+}
