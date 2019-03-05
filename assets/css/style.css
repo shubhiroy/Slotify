@@ -251,5 +251,39 @@ body {
     text-decoration: none;
 }
 
+/* *************** Album.php   **************** */
 
+#mainContent .entityInfo {
+    display: table;
+}
 
+#mainContent .entityInfo .leftSection {
+    float: left;
+    margin: 20px;
+    padding-top: 20px;
+}
+
+#mainContent .entityInfo .leftSection img {
+    height: 250px;
+    width: 250px;
+}
+
+#mainContent .entityInfo .rightSection {
+    float: right;
+}
+
+#mainContent .entityInfo .rightSection h2{
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-family: cursive;
+    display: block;
+    letter-spacing: 2px;
+}
+
+#mainContent .entityInfo .rightSection p{
+    margin-left: 25px;
+    font-family: serif;
+    color: #939393;
+}
