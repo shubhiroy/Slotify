@@ -8,6 +8,7 @@ html, body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #fff;
     letter-spacing: 1px;
+    outline: none;
 }
 
 body {
@@ -266,6 +267,8 @@ body {
 #mainContent .entityInfo .leftSection img {
     height: 250px;
     width: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 #mainContent .entityInfo .rightSection {
@@ -286,4 +289,77 @@ body {
     margin-left: 25px;
     font-family: serif;
     color: #939393;
+}
+
+.tracklist{
+	padding:0px;
+}
+
+.tracklistRow{
+	height:40px;
+	padding:15px 10px;
+	list-style:none;
+}
+
+.tracklistRow span{
+	color:#939393;
+	font-weight:200;
+}
+
+.tracklistRow:hover{
+	background-color:#282828;
+}
+
+.tracklistCount{
+    width: 8%;
+    float: left;
+}
+
+.tracklistCount img{
+    width: 20px;
+    cursor: pointer;
+    visibility: hidden;
+    position: absolute;
+}
+
+.tracklistRow:hover .tracklistCount img{
+    visibility: visible;
+}
+.tracklistRow:hover .tracklistCount span{
+    visibility: hidden;
+}
+
+.tracklistRow .trackInfo{
+    width: 75%;
+    float: left;
+    text-align: left;
+}
+
+.tracklistRow .trackInfo span{
+    display: block;    
+}
+
+.tracklistRow .trackInfo .trackName{
+    color: #fff;   
+}
+
+.tracklistRow .trackOption{
+    width: 5%;
+    float: left;
+    text-align: right;
+}
+
+.tracklistRow .trackOption img{
+    width: 15px;
+    visibility: hidden;
+}
+
+.tracklistRow:hover .trackOption img{
+    visibility: visible;
+}
+
+.tracklistRow .trackDuration{
+    width: 12%;
+    float: left;
+    text-align: right;
 }

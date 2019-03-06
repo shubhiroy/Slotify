@@ -46,5 +46,15 @@
             return mysqli_num_rows($result);
         }
 
+        public function getSongIds(){
+            $query = "Select id from songs where album = '$this->id' order by albumOrder asc";
+            $result = mysqli_query($this->con,$query);
+            $array = array();
+            while($row = mysqli_fetch_array($result)){
+                array_push($array,$row['id']);
+            }
+            return $array;
+        }
+
     }
 ?>
