@@ -15,8 +15,11 @@ $(document).ready(function(){
 	setTrack(currentPlaylist[0],currentPlaylist,false);
 });
 
-function setTrack(currSong,currPlaylist,play){
-	audioElement.setTrack("assets/music/bensound-funnysong.mp3");
+function setTrack(trackId,newPlaylist,play){
+	$.post("includes/handlers/ajax/getSongJson.php",{ songId : trackId },function(data){
+		let track = JSON.parse(data);
+		audioElement.setTrack(track.path);
+	});
 	if(play){
 		play();
 	}
