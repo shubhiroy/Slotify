@@ -291,6 +291,9 @@ body {
     color: #939393;
 }
 
+
+/* *************** Track List   ********************* */
+
 .tracklist{
 	padding:0px;
 }
@@ -341,6 +344,7 @@ body {
 
 .tracklistRow .trackInfo .trackName{
     color: #fff;   
+    margin-bottom: 7px; 
 }
 
 .tracklistRow .trackOption{

@@ -10,3 +10,9 @@ $(document).ready(function() {
 		$("#registerForm").hide();
 	});
 });
+
+// $(document).ready(function(){
+// 	var audioElement = new Audio();
+// 	audioElement.setTrack("assets/music/bensound-acousticbreeze.mp3");
+// 	audioElement.audio.play().catch((e)=>console.log(e));
+// });
