@@ -16,8 +16,13 @@ $(document).ready(function(){
 });
 
 function setTrack(trackId,newPlaylist,play){
-	$.post("includes/handlers/ajax/getSongJson.php",{ songId : trackId },function(data){
-		let track = JSON.parse(data);
+	$.post("includes/handlers/ajax/getSongJson.php",{ songId : trackId },function(trackData){
+		let track = JSON.parse(trackData);
+		$(".trackName span").text(track.title);
+		$.post("includes/handlers/ajax/getArtistJson.php",{ artistId : track.artist },function(artistData){
+			let artist = JSON.parse(artistData);
+			$(".artistName span").text(artist.name);
+		});
 		audioElement.setTrack(track.path);
 	});
 	if(play){
