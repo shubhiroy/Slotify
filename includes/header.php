@@ -22,7 +22,6 @@ else {
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="assets/js/script.js"></script>
-	<script src="assets/js/register.js"></script>
 </head>
 
 <body>
@@ -31,8 +30,7 @@ else {
 			function callback () {
 				var audioElement = new Audio();
 				audioElement.setTrack("assets/music/bensound-acousticbreeze.mp3");
-				console.log('hi');
-				audioElement.audio.play();
+				//audioElement.audio.play();
 			}
 			window.addEventListener("load", callback, false);
 
