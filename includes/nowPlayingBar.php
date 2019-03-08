@@ -23,7 +23,11 @@ function setTrack(trackId,newPlaylist,play){
 			let artist = JSON.parse(artistData);
 			$(".artistName span").text(artist.name);
 		});
-		audioElement.setTrack(track.path);
+		$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:track.album},function(albumData){
+			let album = JSON.parse(albumData);
+			$(".albumLink img").attr("src",album.artworkPath);
+		});
+		audioElement.setTrack(track);
 	});
 	if(play){
 		play();
@@ -31,6 +35,10 @@ function setTrack(trackId,newPlaylist,play){
 }
 
 function play(){
+	console.log(audioElement);
+	if(audioElement.audio.currentTime == 0){
+		$.post("includes/handlers/ajax/updatePlayJson.php",{songId:audioElement.currentlyPlaying.id});
+	}
 	$(".controlButton.play").hide();
 	$(".controlButton.pause").show();
 	audioElement.play();
@@ -51,9 +59,8 @@ function pause(){
 		<div id="nowPlayingLeft">
 			<div class="content">
 				<span class="albumLink">
-					<img src="https://i.ytimg.com/vi/rb8Y38eilRM/maxresdefault.jpg" class="albumArtwork">
+					<img src="assets/images/artwork/clearday.jpg" class="albumArtwork">
 				</span>
-
 				<div class="trackInfo">
 
 					<span class="trackName">
