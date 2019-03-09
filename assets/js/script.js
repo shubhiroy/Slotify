@@ -1,17 +1,6 @@
-// // class Audio{
-// //     constructor(){
-// //         this.audio = document.createElement("audio");
-// //     }
-// //     setTrack(src) {
-// //         this.audio.src = src;
-// //     }
-// //     playTrack(){
-// //         this.audio.play();
-// //     }
-// // }
-
 var currentPlaylist = [];
 var audioElement;
+var mouseDown = false;
 
 class Audio {
     constructor() {
@@ -19,10 +8,7 @@ class Audio {
         this.audio = document.createElement('audio');
         this.audio.addEventListener("canplay",function(){
             let duration = Audio.formatTime(this.duration);
-            $(".progressTime.remaining").text(duration);
-            // let progressWidth = ((this.audio.currentTime/this.duration) * 100) + "%";
-            // console.log(progressWidth);
-            // $("#nowPlayingCenter.progress").css("width",progressWidth);
+            $(".playbackBar .progressTime.remaining").text(duration);
         });
         this.audio.addEventListener("timeupdate",function(){
             if(this.duration){
@@ -40,11 +26,11 @@ class Audio {
     }
 
     static updateProgressTime(audio){
-        $(".progressTime.current").text(Audio.formatTime(audio.currentTime));
-        $(".progressTime.remaining").text(Audio.formatTime(audio.duration - audio.currentTime));
+        $(".playbackBar .progressTime.current").text(Audio.formatTime(audio.currentTime));
+        $(".playbackBar .progressTime.remaining").text(Audio.formatTime(audio.duration - audio.currentTime));
         let progressWidth = ((audio.currentTime/audio.duration) * 100) + "%";
         $(document).ready(function(){
-            $(".progress").css("width",progressWidth);
+            $(".playbackBar .progress").css("width",progressWidth);
         });
         
     }
@@ -60,6 +46,9 @@ class Audio {
 
     pause(){
         this.audio.pause();
+    }
+    setTime(seconds){
+        this.audio.currentTime = seconds;
     }
 }
 

@@ -13,7 +13,28 @@ $(document).ready(function(){
 	currentPlaylist = <?php echo $jsonArr; ?> ;
 	audioElement = new Audio();
 	setTrack(currentPlaylist[0],currentPlaylist,false);
+
+	$(".playbackBar .progressBarBg").mousedown(function(){
+		mouseDown = true;
+	});
+	$(".playbackBar .progressBarBg").mousemove(function(e){
+		if(mouseDown){
+			timeFromOffset(e,this);
+		}
+	});
+	$(".playbackBar .progressBarBg").mouseup(function(e){
+		timeFromOffset(e,this);
+	});
+	$(document).mouseup(function(){
+		mouseDown = false;
+	});
 });
+
+function timeFromOffset(mouse,progressBarBg){
+	let fraction = mouse.offsetX / $(progressBarBg).width();
+	let seconds = audioElement.audio.duration * fraction;
+	audioElement.setTime(seconds);
+}
 
 function setTrack(trackId,newPlaylist,play){
 	$.post("includes/handlers/ajax/getSongJson.php",{ songId : trackId },function(trackData){
