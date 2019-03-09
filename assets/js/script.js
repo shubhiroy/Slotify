@@ -17,11 +17,20 @@ class Audio {
     constructor() {
         this.currentlyPlaying;
         this.audio = document.createElement('audio');
-        // this.audio.addEventListener("canplay",function(){
-        //     //let duration = formatTime(this.duration);
-        //     $(".progressTime.remaining").text(this.duration);
-        // });
+        this.audio.addEventListener("canplay",function(){
+            let duration = Audio.formatTime(this.duration);
+            $(".progressTime.remaining").text(duration);
+        });
     }
+
+    static formatTime(seconds){
+        let time = Math.round(seconds);
+        let minutes = Math.floor(time / 60);
+        let sec = time - (minutes * 60);
+        let extraZero = (sec < 10) ? "0" : "";
+        return minutes + ":" + extraZero + sec;  
+    }
+
     setTrack(track){
         this.currentlyPlaying = track;
         this.audio.src = track.path;
