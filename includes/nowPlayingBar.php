@@ -60,7 +60,9 @@ function timeFromOffset(mouse,progressBarBg){
 	audioElement.setTime(seconds);
 }
 
-function setTrack(trackId,newPlaylist,play){
+function setTrack(trackId,newPlaylist,playTrack){
+	currentIndex = currentPlaylist.indexOf(trackId);
+	pause();
 	$.post("includes/handlers/ajax/getSongJson.php",{ songId : trackId },function(trackData){
 		let track = JSON.parse(trackData);
 		$(".trackName span").text(track.title);
@@ -74,7 +76,7 @@ function setTrack(trackId,newPlaylist,play){
 		});
 		audioElement.setTrack(track);
 	});
-	if(play){
+	if(playTrack){
 		play();
 	}
 }
@@ -92,6 +94,26 @@ function pause(){
 	$(".controlButton.play").show();
 	$(".controlButton.pause").hide();
 	audioElement.pause();
+}
+
+function nextSong(){
+	if(repeat == true){
+		audioElement.setTime(0);
+		play();
+		return;
+	}
+	if(currentIndex == (currentPlaylist.length - 1)){
+		currentIndex = 0;
+	}else{
+		currentIndex++;
+	}
+	setTrack(currentPlaylist[currentIndex],currentPlaylist,true);
+}
+
+function setRepeat(){
+	repeat = !repeat;
+	let repeatImage = repeat ? "repeat-btn.png" : "no-repeat-btn.png"
+	$(".controlButton.repeat img").attr("src","assets/images/icons/" + repeatImage);
 }
 
 </script>
@@ -145,11 +167,11 @@ function pause(){
 					</button>
 
 					<button class="controlButton next" title="Next button">
-						<img src="assets/images/icons/next-btn.png" alt="Next">
+						<img src="assets/images/icons/next-btn.png" alt="Next" onclick="nextSong()">
 					</button>
 
 					<button class="controlButton repeat" title="Repeat button">
-						<img src="assets/images/icons/repeat-btn.png" alt="Repeat">
+						<img src="assets/images/icons/no-repeat-btn.png" alt="Repeat" onclick = "setRepeat()">
 					</button>
 
 				</div>
