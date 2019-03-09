@@ -23,6 +23,11 @@ function setTrack(trackId,newPlaylist,play){
 			let artist = JSON.parse(artistData);
 			$(".artistName span").text(artist.name);
 		});
+		$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:track.album},function(albumData){
+			let album = JSON.parse(albumData);
+			console.log(album);
+			$(".albumLink img").attr("src",album.artworkPath);
+		});
 		audioElement.setTrack(track.path);
 	});
 	if(play){
@@ -51,7 +56,7 @@ function pause(){
 		<div id="nowPlayingLeft">
 			<div class="content">
 				<span class="albumLink">
-					<img src="https://i.ytimg.com/vi/rb8Y38eilRM/maxresdefault.jpg" class="albumArtwork">
+					<img src="assets/images/artwork/sweet.jpg" class="albumArtwork" alt="Album Pic">
 				</span>
 
 				<div class="trackInfo">
