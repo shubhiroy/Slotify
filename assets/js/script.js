@@ -15,6 +15,9 @@ class Audio {
                 Audio.updateProgressTime(this);
             }
         });
+        this.audio.addEventListener("volumechange",function(){
+            Audio.updateVolumeProgress(this);
+        });
     }
 
     static formatTime(seconds){
@@ -33,6 +36,13 @@ class Audio {
             $(".playbackBar .progress").css("width",progressWidth);
         });
         
+    }
+
+    static updateVolumeProgress(audio){
+        let volume = (audio.volume * 100) + "%"; 
+        $(document).ready(function(){
+            $(".volumeBar .progress").css("width",volume);
+        });
     }
 
     setTrack(track){

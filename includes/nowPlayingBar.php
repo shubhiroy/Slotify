@@ -13,6 +13,7 @@ $(document).ready(function(){
 	currentPlaylist = <?php echo $jsonArr; ?> ;
 	audioElement = new Audio();
 	setTrack(currentPlaylist[0],currentPlaylist,false);
+	Audio.updateVolumeProgress(audioElement.audio);
 
 	$(".playbackBar .progressBarBg").mousedown(function(){
 		mouseDown = true;
@@ -25,6 +26,25 @@ $(document).ready(function(){
 	$(".playbackBar .progressBarBg").mouseup(function(e){
 		timeFromOffset(e,this);
 	});
+
+	$(".volumeBar .progressBarBg").mousedown(function(){
+		mouseDown = true;
+	});
+	$(".volumeBar .progressBarBg").mousemove(function(e){
+		if(mouseDown){
+			let fraction = e.offsetX / $(this).width();
+			if(fraction >= 0 && fraction <= 1){
+				audioElement.audio.volume = fraction;
+			}
+		}
+	});
+	$(".volumeBar .progressBarBg").mouseup(function(e){
+		let fraction = e.offsetX / $(this).width();
+			if(fraction >= 0 && fraction <= 1){
+				audioElement.audio.volume = fraction;
+			}
+	});
+
 	$(document).mouseup(function(){
 		mouseDown = false;
 	});
