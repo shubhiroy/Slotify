@@ -25,17 +25,9 @@ function setTrack(trackId,newPlaylist,play){
 		});
 		$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:track.album},function(albumData){
 			let album = JSON.parse(albumData);
-<<<<<<< HEAD
 			$(".albumLink img").attr("src",album.artworkPath);
 		});
 		audioElement.setTrack(track);
-=======
-			console.log(album);
-			$(".albumLink img").attr("src",album.artworkPath);
-		});
-		audioElement.setTrack(track.path);
-
->>>>>>> b0ed25e2d58ea856e871db69a727b9c2c535fff9
 	});
 	if(play){
 		play();
@@ -53,7 +45,7 @@ function play(){
 
 function pause(){
 	$(".controlButton.play").show();
-	$(".controlButtong.pause").hide();
+	$(".controlButton.pause").hide();
 	audioElement.pause();
 }
 
