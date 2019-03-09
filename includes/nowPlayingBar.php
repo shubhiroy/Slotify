@@ -15,6 +15,10 @@ $(document).ready(function(){
 	setTrack(currentPlaylist[0],currentPlaylist,false);
 	Audio.updateVolumeProgress(audioElement.audio);
 
+	$("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove",function(e){
+		e.preventDefault();
+	});
+
 	$(".playbackBar .progressBarBg").mousedown(function(){
 		mouseDown = true;
 	});
