@@ -83,7 +83,7 @@ function pause(){
 
 					<button class="controlButton previous" title="Previous button">
 						<img src="assets/images/icons/previous-btn.png" alt="Previous">
-					</button>
+					</button> 
 
 					<button class="controlButton play" title="Play button" onclick="play();">
 						<img src="assets/images/icons/play-btn.png" alt="Play">
