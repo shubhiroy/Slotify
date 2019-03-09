@@ -121,8 +121,7 @@ function pause(){
 						</div>
 					</div>
 
-				<span class="progressTime remaining">0.00</span>
-
+					<span class="progressTime remaining">0.00</span>
 
 				</div>
 
