@@ -15,7 +15,12 @@ var audioElement;
 
 class Audio {
     constructor() {
+        this.currentlyPlaying;
         this.audio = document.createElement('audio');
+        // this.audio.addEventListener("canplay",function(){
+        //     //let duration = formatTime(this.duration);
+        //     $(".progressTime.remaining").text(this.duration);
+        // });
     }
     
     setTrack(track){
