@@ -47,7 +47,7 @@ function play(){
 
 function pause(){
 	$(".controlButton.play").show();
-	$(".controlButton.pause").hide();
+	$(".controlButtong.pause").hide();
 	audioElement.pause();
 }
 
