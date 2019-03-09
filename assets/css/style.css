@@ -137,7 +137,7 @@ body {
 
 #nowPlayingLeft .trackInfo {
     display: table;
-    float: right;
+    float: left;
     text-align: left;
     margin-left: 10px;
 }

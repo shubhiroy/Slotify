@@ -22,7 +22,6 @@ class Audio {
         //     $(".progressTime.remaining").text(this.duration);
         // });
     }
-    
     setTrack(track){
         this.currentlyPlaying = track;
         this.audio.src = track.path;

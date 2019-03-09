@@ -25,10 +25,9 @@ function setTrack(trackId,newPlaylist,play){
 		});
 		$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:track.album},function(albumData){
 			let album = JSON.parse(albumData);
-			console.log(album);
 			$(".albumLink img").attr("src",album.artworkPath);
 		});
-		audioElement.setTrack(track.path);
+		audioElement.setTrack(track);
 	});
 	if(play){
 		play();
@@ -36,9 +35,8 @@ function setTrack(trackId,newPlaylist,play){
 }
 
 function play(){
-	console.log(audioElement);
-	if(audioElement.audio.currentTime == 0){
-		$.post("includes/handlers/ajax/updatePlayJson.php",{songId:audioElement.currentlyPlaying.id});
+	if(audioElement.audio.currentTime == 0 ){
+		$.post("includes/handlers/ajax/updatePlaysJson.php",{songId:audioElement.currentlyPlaying.id});
 	}
 	$(".controlButton.play").hide();
 	$(".controlButton.pause").show();
