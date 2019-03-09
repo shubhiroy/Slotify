@@ -25,9 +25,10 @@ function setTrack(trackId,newPlaylist,play){
 		});
 		$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:track.album},function(albumData){
 			let album = JSON.parse(albumData);
+			console.log(album);
 			$(".albumLink img").attr("src",album.artworkPath);
 		});
-		audioElement.setTrack(track);
+		audioElement.setTrack(track.path);
 	});
 	if(play){
 		play();
@@ -59,7 +60,8 @@ function pause(){
 		<div id="nowPlayingLeft">
 			<div class="content">
 				<span class="albumLink">
-					<img src="assets/images/artwork/clearday.jpg" class="albumArtwork">
+
+					<img src="assets/images/artwork/sweet.jpg" class="albumArtwork" alt="Album Pic">
 				</span>
 				<div class="trackInfo">
 
@@ -90,7 +92,7 @@ function pause(){
 
 					<button class="controlButton previous" title="Previous button">
 						<img src="assets/images/icons/previous-btn.png" alt="Previous">
-					</button>
+					</button> 
 
 					<button class="controlButton play" title="Play button" onclick="play();">
 						<img src="assets/images/icons/play-btn.png" alt="Play">
