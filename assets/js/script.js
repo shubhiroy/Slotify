@@ -20,6 +20,9 @@ class Audio {
         this.audio.addEventListener("volumechange",function(){
             Audio.updateVolumeProgress(this);
         });
+        this.audio.addEventListener("ended",function(){
+            nextSong();
+        });
     }
 
     static formatTime(seconds){

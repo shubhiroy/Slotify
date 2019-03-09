@@ -82,6 +82,7 @@ function setTrack(trackId,newPlaylist,playTrack){
 }
 
 function play(){
+	audioElement.audio.autoplay = true;
 	if(audioElement.audio.currentTime == 0 ){
 		$.post("includes/handlers/ajax/updatePlaysJson.php",{songId:audioElement.currentlyPlaying.id});
 	}
