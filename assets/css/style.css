@@ -54,8 +54,6 @@ body {
 #nowPlayingBar .content {
 	width: 100%;
     height: 57px;
-    display: flex;
-    display: table;
 }
 
 .playerControls .buttons {
