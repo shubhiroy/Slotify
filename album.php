@@ -27,7 +27,7 @@ $album = new Album($con,$albumId);
 			$count = 1;
 			foreach($songIds as $songId){
 				$song = new Song($con,$songId);
-				$songArtist = $song->getArtist();
+				//$songArtist = $song->getArtist();
 				echo "<div class='tracklistRow'>
 						<div class='tracklistCount'>
 							<img src='assets/images/icons/play-white.png' alt='Play Button'>

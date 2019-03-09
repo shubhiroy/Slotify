@@ -29,6 +29,7 @@ function setTrack(trackId,newPlaylist,play){
 			$(".albumLink img").attr("src",album.artworkPath);
 		});
 		audioElement.setTrack(track.path);
+
 	});
 	if(play){
 		play();
@@ -36,6 +37,10 @@ function setTrack(trackId,newPlaylist,play){
 }
 
 function play(){
+	console.log(audioElement);
+	if(audioElement.audio.currentTime == 0){
+		$.post("includes/handlers/ajax/updatePlayJson.php",{songId:audioElement.currentlyPlaying.id});
+	}
 	$(".controlButton.play").hide();
 	$(".controlButton.pause").show();
 	audioElement.play();
@@ -58,7 +63,6 @@ function pause(){
 				<span class="albumLink">
 					<img src="assets/images/artwork/sweet.jpg" class="albumArtwork" alt="Album Pic">
 				</span>
-
 				<div class="trackInfo">
 
 					<span class="trackName">
@@ -120,7 +124,6 @@ function pause(){
 					</div>
 
 					<span class="progressTime remaining">0.00</span>
-
 
 				</div>
 

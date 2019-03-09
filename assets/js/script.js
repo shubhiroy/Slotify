@@ -15,10 +15,17 @@ var audioElement;
 
 class Audio {
     constructor() {
+        this.currentlyPlaying;
         this.audio = document.createElement('audio');
+        // this.audio.addEventListener("canplay",function(){
+        //     //let duration = formatTime(this.duration);
+        //     $(".progressTime.remaining").text(this.duration);
+        // });
     }
-    setTrack(src){
-        this.audio.src = src;
+    
+    setTrack(track){
+        this.currentlyPlaying = track;
+        this.audio.src = track.path;
     }
 
     play(){
