@@ -8,77 +8,83 @@ var repeat = false;
 var shuffle = false;
 var userLoggedIn;
 
-function openURL(url) {
-    if (url.indexOf("?") == -1) {
-        url = url + "?";
-    }
-    var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
-    $("#mainContent").load(encodedUrl);
-    $('body').scrollTop(0);
-    history.pushState(null, null, url);
+function openPage(url) {
+
+	if(url.indexOf("?") == -1) {
+		url = url + "?";
+	}
+
+	var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+	console.log(encodedUrl);
+	$("#mainContent").load(encodedUrl);
+	$("body").scrollTop(0);
+	history.pushState(null, null, url);
 }
 
-class Audio {
-    constructor() {
-        this.currentlyPlaying;
-        this.audio = document.createElement('audio');
-        this.audio.addEventListener("canplay", function () {
-            let duration = Audio.formatTime(this.duration);
-            $(".playbackBar .progressTime.remaining").text(duration);
-        });
-        this.audio.addEventListener("timeupdate", function () {
-            if (this.duration) {
-                Audio.updateProgressTime(this);
-            }
-        });
-        this.audio.addEventListener("volumechange", function () {
-            Audio.updateVolumeProgress(this);
-        });
-        this.audio.addEventListener("ended", function () {
-            nextSong();
-        });
-    }
 
-    static formatTime(seconds) {
-        let time = Math.round(seconds);
-        let minutes = Math.floor(time / 60);
-        let sec = time - (minutes * 60);
-        let extraZero = (sec < 10) ? "0" : "";
-        return minutes + ":" + extraZero + sec;
-    }
+function formatTime(seconds) {
+	var time = Math.round(seconds);
+	var minutes = Math.floor(time / 60); //Rounds down
+	var seconds = time - (minutes * 60);
 
-    setTrack(track) {
-        this.currentlyPlaying = track;
-        this.audio.src = track.path;
-    }
+	var extraZero = (seconds < 10) ? "0" : "";
 
-    play() {
-        this.audio.autoplay = true
-        this.audio.play();
-    }
-
-    pause() {
-        this.audio.pause();
-    }
-    setTime(seconds) {
-        this.audio.currentTime = seconds;
-    }
-
-    static updateProgressTime(audio) {
-        $(".playbackBar .progressTime.current").text(Audio.formatTime(audio.currentTime));
-        $(".playbackBar .progressTime.remaining").text(Audio.formatTime(audio.duration - audio.currentTime));
-        let progressWidth = ((audio.currentTime / audio.duration) * 100) + "%";
-        $(document).ready(function () {
-            $(".playbackBar .progress").css("width", progressWidth);
-        });
-
-    }
-
-    static updateVolumeProgress(audio) {
-        let volume = (audio.volume * 100) + "%";
-        $(document).ready(function () {
-            $(".volumeBar .progress").css("width", volume);
-        });
-    }
+	return minutes + ":" + extraZero + seconds;
 }
 
+function updateTimeProgressBar(audio) {
+	$(".progressTime.current").text(formatTime(audio.currentTime));
+	$(".progressTime.remaining").text(formatTime(audio.duration - audio.currentTime));
+
+	var progress = audio.currentTime / audio.duration * 100;
+	$(".playbackBar .progress").css("width", progress + "%");
+}
+
+function updateVolumeProgressBar(audio) {
+	var volume = audio.volume * 100;
+	$(".volumeBar .progress").css("width", volume + "%");
+}
+
+function Audio() {
+
+	this.currentlyPlaying;
+	this.audio = document.createElement('audio');
+
+	this.audio.addEventListener("ended", function() {
+		nextSong();
+	});
+
+	this.audio.addEventListener("canplay", function() {
+		//'this' refers to the object that the event was called on
+		var duration = formatTime(this.duration);
+		$(".progressTime.remaining").text(duration);
+	});
+
+	this.audio.addEventListener("timeupdate", function(){
+		if(this.duration) {
+			updateTimeProgressBar(this);
+		}
+	});
+
+	this.audio.addEventListener("volumechange", function() {
+		updateVolumeProgressBar(this);
+	});
+
+	this.setTrack = function(track) {
+		this.currentlyPlaying = track;
+		this.audio.src = track.path;
+	}
+
+	this.play = function() {
+		this.audio.play();
+	}
+
+	this.pause = function() {
+		this.audio.pause();
+	}
+
+	this.setTime = function(seconds) {
+		this.audio.currentTime = seconds;
+	}
+
+}

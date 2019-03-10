@@ -133,7 +133,7 @@ body {
     font-size: 20px;
     list-style-type: none;
     padding: 5px 30px;
-    background: url(../images/icons/trebleclef.png) no-repeat 0 0;
+    background: url(../images/icons/checkmark.png) no-repeat 0 0;
 }
 
 #inputContainer .errorMessage {

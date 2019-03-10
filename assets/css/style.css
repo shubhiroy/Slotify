@@ -8,7 +8,6 @@ html, body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #fff;
     letter-spacing: 1px;
-    outline: none;
 }
 
 body {
@@ -53,7 +52,7 @@ body {
 
 #nowPlayingBar .content {
 	width: 100%;
-    height: 57px;
+	height: 57px;
 }
 
 .playerControls .buttons {
@@ -65,18 +64,17 @@ body {
 	background-color: transparent;
     border: none;
     vertical-align: middle;
-    outline:none;
 }
 
 .controlButton img {
-	width: 25px;
-    height: 25px;
+	width: 20px;
+    height: 20px;
 }
 
 .controlButton.play img,
 .controlButton.pause img {
-	width: 40px;
-	height: 40px;
+	width: 32px;
+	height: 32px;
 }
 
 .controlButton:hover {
@@ -91,9 +89,7 @@ body {
 }
 
 .playbackBar {
-    display: flex;
-    width: 100%;
-    margin-top: 3px;
+	display: flex;
 }
 
 .progressBar {
@@ -129,15 +125,8 @@ body {
     background-size: cover;
 }
 
-.albumLink img{
-    height: 57px;
-}
-
 #nowPlayingLeft .trackInfo {
-    display: table;
-    float: left;
-    text-align: left;
-    margin-left: 10px;
+	display: table;
 }
 
 #nowPlayingLeft .trackInfo .trackName {
@@ -261,118 +250,121 @@ body {
     text-decoration: none;
 }
 
-/* *************** Album.php   **************** */
-
-#mainContent .entityInfo {
-    display: table;
+.entityInfo {
+    padding: 40px 0 10px 0;
+    display: inline-block;
+    width: 100%;
 }
 
-#mainContent .entityInfo .leftSection {
+.entityInfo .leftSection {
+    width: 30%;
     float: left;
-    margin: 20px;
-    padding-top: 20px;
+    max-width: 250px;
 }
 
-#mainContent .entityInfo .leftSection img {
-    height: 250px;
-    width: 250px;
-    border: 1px solid black;
-    border-radius: 5px;
+.entityInfo .leftSection img {
+    width: 100%;
 }
 
-#mainContent .entityInfo .rightSection {
-    float: right;
+.entityInfo .rightSection {
+    width: 70%;
+    float: left;
+    padding: 5px 10px 5px 40px;
+    box-sizing: border-box;
 }
 
-#mainContent .entityInfo .rightSection h2{
-    margin-left: 20px;
-    margin-top: 30px;
-    margin-bottom: 5px;
-    font-size: 30px;
-    font-family: cursive;
-    display: block;
-    letter-spacing: 2px;
+.entityInfo .rightSection h2 {
+    margin-top: 0px;
 }
 
-#mainContent .entityInfo .rightSection p{
-    margin-left: 25px;
-    font-family: serif;
+.entityInfo .rightSection p {
     color: #939393;
+    font-weight: 200;
 }
 
-
-/* *************** Track List   ********************* */
-
-.tracklist{
-	padding:0px;
+.tracklist {
+    padding: 0;
 }
 
-.tracklistRow{
-	height:40px;
-	padding:15px 10px;
-	list-style:none;
+.tracklistRow {
+    height: 40px;
+    padding: 15px 10px;
+    list-style: none;
 }
 
-.tracklistRow span{
-	color:#939393;
-	font-weight:200;
+.tracklistRow span {
+    color: #939393;
+    font-weight: 200;
 }
 
-.tracklistRow:hover{
-	background-color:#282828;
+.tracklistRow:hover {
+    background-color: #282828;
 }
 
-.tracklistCount{
+.tracklistRow .trackCount {
     width: 8%;
     float: left;
 }
 
-.tracklistCount img{
+.tracklistRow .trackCount img {
     width: 20px;
-    cursor: pointer;
     visibility: hidden;
     position: absolute;
+    cursor: pointer;
 }
 
-.tracklistRow:hover .tracklistCount img{
+.tracklistRow:hover .trackCount img {
     visibility: visible;
 }
-.tracklistRow:hover .tracklistCount span{
+
+.tracklistRow .trackCount span {
+    visibility: visible;
+}
+
+.tracklistRow:hover .trackCount span {
     visibility: hidden;
 }
 
-.tracklistRow .trackInfo{
+.tracklistRow .trackInfo {
     width: 75%;
     float: left;
-    text-align: left;
 }
 
-.tracklistRow .trackInfo span{
-    display: block;    
+.tracklistRow .trackInfo span {
+    display: block;
 }
 
-.tracklistRow .trackInfo .trackName{
-    color: #fff;   
-    margin-bottom: 7px; 
-}
-
-.tracklistRow .trackOption{
+.tracklistRow .trackOptions {
     width: 5%;
     float: left;
     text-align: right;
 }
 
-.tracklistRow .trackOption img{
+.tracklistRow .trackOptions img {
     width: 15px;
     visibility: hidden;
 }
 
-.tracklistRow:hover .trackOption img{
+.tracklistRow:hover .trackOptions img {
     visibility: visible;
 }
 
-.tracklistRow .trackDuration{
+.tracklistRow .trackDuration {
     width: 12%;
     float: left;
     text-align: right;
 }
+
+.tracklistRow .trackInfo .trackName {
+    color: #fff;
+    margin-bottom: 7px;
+}
+
+
+
+
+
+
+
+
+

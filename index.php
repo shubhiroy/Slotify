@@ -1,3 +1,7 @@
-<?php include_once("includes/includedFiles.php"); ?>
+<?php 
+include("includes/includedFiles.php"); 
+?>
 
-<script> openURL("browse.php") </script>
+
+<script>openPage("browse.php")</script>
+

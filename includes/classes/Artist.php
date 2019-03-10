@@ -1,23 +1,18 @@
 <?php
-    class Artist{
-        private $con;
-        private $id;
-        private $artistName;
+	class Artist {
 
-        public function __construct($con,$id){
-            $this->con = $con;
-            $this->id = $id;
+		private $con;
+		private $id;
 
-            $query = "Select name from artists where id = '$this->id'";
-            $result = mysqli_query($this->con,$query);
-            $artist = mysqli_fetch_assoc($result);
+		public function __construct($con, $id) {
+			$this->con = $con;
+			$this->id = $id;
+		}
 
-            $this->artistName = $artist['name'];
-        }
-        
-        public function getName(){
-            return $this->artistName;
-        }
-
-    }
+		public function getName() {
+			$artistQuery = mysqli_query($this->con, "SELECT name FROM artists WHERE id='$this->id'");
+			$artist = mysqli_fetch_array($artistQuery);
+			return $artist['name'];
+		}
+	}
 ?>

@@ -1,12 +1,13 @@
 <?php
-include_once("../../config.php");
+include("../../config.php");
 
-if(isset($_POST['artistId'])){
-    $artistId = $_POST['artistId'];
-    $query = "Select name from artists where id = '$artistId'";
-    $result = mysqli_query($con,$query);
-    $resultArr = mysqli_fetch_array($result);
-    echo json_encode($resultArr);
+if(isset($_POST['artistId'])) {
+	$artistId = $_POST['artistId'];
+
+	$query = mysqli_query($con, "SELECT * FROM artists WHERE id='$artistId'");
+
+	$resultArray = mysqli_fetch_array($query);
+
+	echo json_encode($resultArray);
 }
-
 ?>

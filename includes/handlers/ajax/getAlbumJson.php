@@ -1,10 +1,13 @@
 <?php
-include_once("../../config.php");
-if(isset($_POST['albumId'])){
-    $albumId = $_POST['albumId'];
-    $query = "Select * from albums where id = '$albumId'";
-    $result = mysqli_query($con,$query);
-    $resArr = mysqli_fetch_array($result);
-    echo json_encode($resArr);
+include("../../config.php");
+
+if(isset($_POST['albumId'])) {
+	$albumId = $_POST['albumId'];
+
+	$query = mysqli_query($con, "SELECT * FROM albums WHERE id='$albumId'");
+
+	$resultArray = mysqli_fetch_array($query);
+
+	echo json_encode($resultArray);
 }
 ?>
