@@ -8,6 +8,7 @@ class Audio {
     constructor() {
         this.currentlyPlaying;
         this.audio = document.createElement('audio');
+        this.audio.autoplay = true;
         this.audio.addEventListener("canplay",function(){
             let duration = Audio.formatTime(this.duration);
             $(".playbackBar .progressTime.remaining").text(duration);

@@ -82,7 +82,6 @@ function setTrack(trackId,newPlaylist,playTrack){
 }
 
 function play(){
-	audioElement.audio.autoplay = true;
 	if(audioElement.audio.currentTime == 0 ){
 		$.post("includes/handlers/ajax/updatePlaysJson.php",{songId:audioElement.currentlyPlaying.id});
 	}
@@ -111,10 +110,30 @@ function nextSong(){
 	setTrack(currentPlaylist[currentIndex],currentPlaylist,true);
 }
 
+function prevSong(){
+	if(repeat == true){
+		audioElement.setTime(0);
+		play();
+		return;
+	}
+	if(audioElement.audio.currentTime >= 3 || currentIndex == 0){
+		audioElement.setTime(0);
+	}else{
+		currentIndex--;
+		setTrack(currentPlaylist[currentIndex],currentPlaylist,true);
+	}
+}
+
 function setRepeat(){
 	repeat = !repeat;
 	let repeatImage = repeat ? "repeat-btn.png" : "no-repeat-btn.png"
 	$(".controlButton.repeat img").attr("src","assets/images/icons/" + repeatImage);
+}
+
+function setMute(){
+	audioElement.audio.muted = !audioElement.audio.muted;
+	let muteImage = audioElement.audio.muted ? "mute-btn2.png" : "volume-btn.png";
+	$(".controlButton.volume img").attr("src","assets/images/icons/" + muteImage);
 }
 
 </script>
@@ -156,7 +175,7 @@ function setRepeat(){
 					</button>
 
 					<button class="controlButton previous" title="Previous button">
-						<img src="assets/images/icons/previous-btn.png" alt="Previous">
+						<img src="assets/images/icons/previous-btn.png" alt="Previous" onclick="prevSong()">
 					</button> 
 
 					<button class="controlButton play" title="Play button" onclick="play();">
@@ -202,7 +221,7 @@ function setRepeat(){
 			<div class="volumeBar">
 
 				<button class="controlButton volume" title="Volume button">
-					<img src="assets/images/icons/volume-btn.png" alt="Volume">
+					<img src="assets/images/icons/volume-btn.png" alt="Volume" onclick="setMute()">
 				</button>
 
 				<div class="progressBar">
