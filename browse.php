@@ -1,6 +1,4 @@
-<?php 
-include("includes/includedFiles.php"); 
-?>
+<?php include_once("includes/includedFiles.php"); ?>
 
 <h1 class="pageHeadingBig">You Might Also Like</h1>
 
@@ -10,12 +8,8 @@ include("includes/includedFiles.php");
 		$albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY RAND() LIMIT 10");
 
 		while($row = mysqli_fetch_array($albumQuery)) {
-			
-
-
-
 			echo "<div class='gridViewItem'>
-					<span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+					<span role='link' tabindex='0' onclick=openURL('album.php?id=" . $row['id'] . "')>
 						<img src='" . $row['artworkPath'] . "'>
 
 						<div class='gridViewInfo'>"
@@ -31,3 +25,4 @@ include("includes/includedFiles.php");
 	?>
 
 </div>
+
