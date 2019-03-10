@@ -265,6 +265,7 @@ body {
 
 #mainContent .entityInfo {
     display: table;
+    width: 100%;
 }
 
 #mainContent .entityInfo .leftSection {
@@ -375,4 +376,38 @@ body {
     width: 12%;
     float: left;
     text-align: right;
+}
+
+/* ************ Artist ************ */
+
+.artistPage.entityInfo{
+    padding: 40px 0px 20px 0;
+    
+}
+
+.artistInfo{
+    text-align: center;
+}
+
+.button{
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 150px;
+    min-width: 130px;
+    padding: 15px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button.green{
+    background-color: #2ebd59;
+    border-color: #2ebd59;
+}
+
+.borderBottom{
+    border-bottom: 2px solid #939393;
+    margin-bottom: 30px;
 }

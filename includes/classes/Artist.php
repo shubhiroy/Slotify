@@ -19,5 +19,15 @@
             return $this->artistName;
         }
 
+        public function getSongIds(){
+            $query = "Select id from songs where artist = '$this->id' order by plays desc";
+            $result = mysqli_query($this->con,$query);
+            $array = array();
+            while($row = mysqli_fetch_array($result)){
+                array_push($array,$row['id']);
+            }
+            return $array;
+        }
+
     }
 ?>

@@ -53,9 +53,4 @@ $album = new Album($con,$albumId);
 	</ul>
 </div>
 
-<?php
 
-	
-
-
-?>
