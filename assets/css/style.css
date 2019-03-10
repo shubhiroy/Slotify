@@ -246,6 +246,7 @@ body {
 
 .gridViewItem img {
     width: 100%;
+    border-radius: 5px;
 }
 
 .gridViewInfo {
@@ -265,7 +266,6 @@ body {
 
 #mainContent .entityInfo {
     display: table;
-    width: 100%;
 }
 
 #mainContent .entityInfo .leftSection {
@@ -382,6 +382,7 @@ body {
 
 .artistPage.entityInfo{
     padding: 40px 0px 20px 0;
+    width: 100%;
     
 }
 
@@ -410,4 +411,9 @@ body {
 .borderBottom{
     border-bottom: 2px solid #939393;
     margin-bottom: 30px;
+}
+
+.tracklistContainer h2,
+.gridViewContainer h2{
+    text-align: center;
 }
