@@ -27,10 +27,9 @@ $album = new Album($con,$albumId);
 			$count = 1;
 			foreach($songIds as $songId){
 				$song = new Song($con,$songId);
-				//$songArtist = $song->getArtist();
 				echo "<div class='tracklistRow'>
 						<div class='tracklistCount'>
-							<img src='assets/images/icons/play-white.png' alt='Play Button'>
+							<img src='assets/images/icons/play-white.png' alt='Play Button' onclick='setTrack(\"". $song->getId() ."\",tempPlaylist,true)'>
 							<span>" . $count . "</span>
 						</div>
 						<div class='trackInfo'>
@@ -45,6 +44,12 @@ $album = new Album($con,$albumId);
 				$count = $count + 1;
 			}
 		?>
+
+		<script>
+			let tempSongIds = '<?php echo json_encode($songIds); ?>';
+			tempPlaylist = JSON.parse(tempSongIds);
+		</script>
+
 	</ul>
 </div>
 

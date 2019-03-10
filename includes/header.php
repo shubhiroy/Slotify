@@ -1,13 +1,14 @@
 <?php
-include("includes/config.php");
-include("classes/Artist.php");
-include("classes/Album.php");
-include("classes/Song.php");
+include_once("includes/config.php");
+include_once("classes/Artist.php");
+include_once("classes/Album.php");
+include_once("classes/Song.php");
 
 //session_destroy(); LOGOUT
 
 if(isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
+	echo "<script> var userLoggedIn = '$userLoggedIn' </script>";
 }
 else {
 	header("Location: register.php");

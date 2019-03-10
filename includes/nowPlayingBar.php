@@ -158,7 +158,7 @@ function setShuffle(){
 		shuffleArray(shufflePlaylist);
 		currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id);
 	} else {
-		currentIndex = currentPlaylist.indexOf(audioElemet.currenttlyPlaying.id);
+		currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
 	}
 }
 

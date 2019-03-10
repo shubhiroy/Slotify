@@ -1,9 +1,9 @@
 <div id="navBarContainer">
 	<nav class="navBar">
 
-		<a href="index.php" class="logo">
+		<span role="link" tabindex="0" onclick=openURL('index.php') class="logo">
 			<img src="assets/images/icons/logo.png">
-		</a>
+		</span>
 
 
 		<div class="group">

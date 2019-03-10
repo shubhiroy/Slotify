@@ -31,6 +31,10 @@
             return $this->title;
         }
 
+        public function getId(){
+            return $this->id;
+        }
+
         public function getAlbum(){
             return (new Album($this->con,$this->albumId));
         }
