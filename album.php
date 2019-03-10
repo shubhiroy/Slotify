@@ -1,4 +1,4 @@
-<?php include("includes/header.php"); 
+<?php include_once("includes/includedFiles.php"); 
 
 if(isset($_GET['id'])) {
 	$albumId = $_GET['id'];
@@ -59,5 +59,3 @@ $album = new Album($con,$albumId);
 
 
 ?>
-
-<?php include("includes/footer.php"); ?>

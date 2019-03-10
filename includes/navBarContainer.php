@@ -9,29 +9,25 @@
 		<div class="group">
 
 			<div class="navItem">
-				<a href="search.php" class="navItemLink">Search
+				<span role="link" tabindex="0" onclick=openURL('search.php') class="navItemLink">Search
 					<img src="assets/images/icons/search.png" class="icon" alt="Search">
-				</a>
+				</span>
 			</div>
 
 		</div>
 
 		<div class="group">
 			<div class="navItem">
-				<a href="browse.php" class="navItemLink">Browse</a>
+				<span role="link" tabindex="0" onclick=openURL('browse.php') class="navItemLink">Browse</span>
 			</div>
 
 			<div class="navItem">
-				<a href="yourMusic.php" class="navItemLink">Your Music</a>
+				<span role="link" tabindex="0" onclick=openURL('yourMusic.php') class="navItemLink">Your Music</span>
 			</div>
 
 			<div class="navItem">
-				<a href="profile.php" class="navItemLink">Reece Kenney</a>
+				<span role="link" tabindex="0" onclick=openURL('profile.php') class="navItemLink">Reece Kenney</span>
 			</div>
-		</div>
-
-
-
-
+		</div> 
 	</nav>
 </div>
