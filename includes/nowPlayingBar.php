@@ -80,10 +80,13 @@ function setTrack(trackId,newPlaylist,playTrack){
 		$.post("includes/handlers/ajax/getArtistJson.php",{ artistId : track.artist },function(artistData){
 			let artist = JSON.parse(artistData);
 			$(".artistName span").text(artist.name);
+			$(".artistName span").attr("onclick","openURL('artist.php?artistId=" + artist.id + "')");
 		});
 		$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:track.album},function(albumData){
 			let album = JSON.parse(albumData);
 			$(".albumLink img").attr("src",album.artworkPath);
+			$(".albumLink img").attr("onclick","openURL('album.php?id=" + album.id + "')");
+			$(".trackName span").attr("onclick","openURL('album.php?id=" + album.id + "')");
 		});
 		audioElement.setTrack(track);
 	});
@@ -181,16 +184,16 @@ function shuffleArray(array){
 		<div id="nowPlayingLeft">
 			<div class="content">
 				<span class="albumLink">
-					<img src="assets/images/artwork/sweet.jpg" class="albumArtwork" alt="Album Pic">
+					<img role="link" tabindex="0" src="assets/images/artwork/sweet.jpg" class="albumArtwork" alt="Album Pic">
 				</span>
 				<div class="trackInfo">
 
 					<span class="trackName">
-						<span>Happy Birthday</span>
+						<span role="link" tabindex="0">Happy Birthday</span>
 					</span>
 
 					<span class="artistName">
-						<span>Reece Kenney</span>
+						<span role="link" tabindex="0">Reece Kenney</span>
 					</span>
 
 				</div>

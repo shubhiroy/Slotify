@@ -46,8 +46,10 @@ $album = new Album($con,$albumId);
 		?>
 
 		<script>
+			{
 			let tempSongIds = '<?php echo json_encode($songIds); ?>';
 			tempPlaylist = JSON.parse(tempSongIds);
+			}
 		</script>
 
 	</ul>
