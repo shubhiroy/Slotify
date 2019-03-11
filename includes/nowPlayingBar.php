@@ -76,17 +76,17 @@ function setTrack(trackId,newPlaylist,playTrack){
 
 	$.post("includes/handlers/ajax/getSongJson.php",{ songId : trackId },function(trackData){
 		let track = JSON.parse(trackData);
-		$(".trackName span").text(track.title);
+		$(".trackInfo .trackName span").text(track.title);
 		$.post("includes/handlers/ajax/getArtistJson.php",{ artistId : track.artist },function(artistData){
 			let artist = JSON.parse(artistData);
-			$(".artistName span").text(artist.name);
-			$(".artistName span").attr("onclick","openURL('artist.php?artistId=" + artist.id + "')");
+			$(".trackInfo .artistName span").text(artist.name);
+			$(".trackInfo .artistName span").attr("onclick","openURL('artist.php?artistId=" + artist.id + "')");
 		});
 		$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:track.album},function(albumData){
 			let album = JSON.parse(albumData);
-			$(".albumLink img").attr("src",album.artworkPath);
-			$(".albumLink img").attr("onclick","openURL('album.php?id=" + album.id + "')");
-			$(".trackName span").attr("onclick","openURL('album.php?id=" + album.id + "')");
+			$(".content .albumLink img").attr("src",album.artworkPath);
+			$(".content .albumLink img").attr("onclick","openURL('album.php?id=" + album.id + "')");
+			$(".trackInfo .trackName span").attr("onclick","openURL('album.php?id=" + album.id + "')");
 		});
 		audioElement.setTrack(track);
 	});
