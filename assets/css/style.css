@@ -450,3 +450,16 @@ body {
     font-weight: 700;
     font-size: 62px;
 }
+
+.searchResultRow{
+    padding: 13px 10px;
+    margin-bottom: 7px;
+}
+
+.searchResultRow:hover{
+    background-color: #282828;
+}
+
+.searchResultRow .artistName{
+    color: #fff;
+}
