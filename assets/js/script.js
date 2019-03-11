@@ -25,6 +25,20 @@ function openURL(url) {
     history.pushState(null, null, url);
 }
 
+function createPlaylist(){
+    let playlist = prompt("Please enter the name of your playlist.");
+    if(playlist != null){
+        $.post("includes/handlers/ajax/createPlaylistJson.php",{playlistName:playlist, username:userLoggedIn})
+        .done(function(err){
+            if(err != ""){
+                alert(err);
+                return;
+            }
+            openURL("yourMusic.php");
+        });
+    }
+}
+
 class Audio {
     constructor() {
         this.currentlyPlaying;
