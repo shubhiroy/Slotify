@@ -481,15 +481,15 @@ body {
     margin: 0 auto 20px auto;
 }
 
-.gridViewItem span img{
+.gridViewItem.yourMusic{
+    margin: 15px;
+}
+
+.playlistImage{
     border: 2px solid #282828;
     padding: 10px;
     margin-bottom:4px;
     display: block;
-}
-
-.gridViewItem.yourMusic{
-    margin: 15px;
 }
 
 .gridViewItem.yourMuisc .gridViewInfo{

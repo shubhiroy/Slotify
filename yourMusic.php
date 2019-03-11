@@ -14,10 +14,12 @@
 		while($row = mysqli_fetch_array($albumQuery)) {
 			$playlist = new Playlist($con,$row);
 			echo "<div class='gridViewItem yourMusic'>
-					<span role='link' tabindex='0' onclick=openURL('playlist.php?id=" . /*$playlist->getId()*/ $row['id'] . "')>
-						<img src='assets/images/icons/playlist.png'>
+					<span role='link' tabindex='0' onclick=openURL('playlist.php?id=" . $playlist->getId() . "')>
+						<div class='playlistImage'>
+							<img src='assets/images/icons/playlist.png'>
+						</div>
 						<div class='gridViewInfo'>"
-							. /*$playlist->getPlaylistName()*/$row['name'] .
+							. $playlist->getPlaylistName() .
 						"</div>
 					</span>
 				</div>  
