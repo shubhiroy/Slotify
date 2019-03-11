@@ -422,3 +422,31 @@ body {
 [role="link"]{
     cursor: pointer;
 }
+
+/* **************** Search Page ****************** */
+
+.searchContainer{
+    background: #242424;
+    padding: 28px 28px;
+}
+
+.searchContainer h4{
+    margin: 0;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.searchContainer .searchInput{
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 62px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: rgb(248, 244, 244);
+    font-weight: 700;
+    font-size: 62px;
+}
