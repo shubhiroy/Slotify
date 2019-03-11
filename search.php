@@ -66,4 +66,22 @@ $(() => {
  	</ul>
  </div>
 
+ <div class="gridViewContainer">
+    <h2>ALBUMS</h2>
+    <?php
+	$albumQuery = mysqli_query($con, "SELECT * FROM albums where title like '$term%'");
 
+	while ($row = mysqli_fetch_array($albumQuery)) {
+		echo "<div class='gridViewItem'>
+					<span role='link' tabindex='0' onclick=openURL('album.php?id=" . $row['id'] . "')>
+						<img src='" . $row['artworkPath'] . "'>
+
+						<div class='gridViewInfo'>"
+			. $row['title'] .
+			"</div>
+					</span>
+
+				</div>";
+	}
+	?>
+</div> 
