@@ -8,19 +8,19 @@ if(isset($_GET['term'])){
     $term = "";
 }
 ?>
+
 <div class="searchContainer">
 <h4>Search for songs, artists or albums</h4>
 <input type="text" class="searchInput" placeholder="Start Typing ... " value="<?php echo $term; ?>" onfocus="this.value = this.value">
 </div>
 
-<script>
+<script>  
 $(".searchInput").focus();
-
-$(() => {
-    let timer;
-    $(".searchInput").keyup(() => {
+console.log(timer);
+$(function(){
+    $(".searchInput").keyup(function(){
         clearTimeout(timer);
-        timer = setTimeout(() => {
+        timer = setTimeout(function(){
             let val = $(".searchInput").val();
             openURL("search.php?term="+val);
         }, 2000);
@@ -28,6 +28,8 @@ $(() => {
 })
 
 </script>
+
+<?php  if($term == "") exit(); ?>
 
 <div class="tracklistContainer borderBottom">
     <h2>SONGS</h2>
@@ -38,7 +40,7 @@ $(() => {
             $count = 1;
             $songIds = array();
             if(mysqli_num_rows($result) == 0){
-                echo "</span class='noResult'>No songs found matching ". $term ."</span>";
+                echo "</span class='noResults'>No songs found matching ". $term ."</span>";
             }
 			while($row = mysqli_fetch_array($result)){
                 $song = new Song($con,$row['id']);
@@ -76,7 +78,7 @@ $(() => {
     $query = "Select * from artists where name like '$term%'";
     $result = mysqli_query($con,$query);
     if(mysqli_num_rows($result) == 0){
-        echo "</span class='noResult'>No artists found matching ". $term ."</span>";
+        echo "</span class='noResults'>No artists found matching ". $term ."</span>";
     }
     while($row = mysqli_fetch_array($result)){
         echo "<div class='searchResultRow'>
@@ -90,18 +92,12 @@ $(() => {
     ?>
 </div>
 
-
-
-
-
-
-
  <div class="gridViewContainer">
     <h2>ALBUMS</h2>
     <?php
 	$albumQuery = mysqli_query($con, "SELECT * FROM albums where title like '$term%'");
     if(mysqli_num_rows($albumQuery) == 0){
-        echo "</span class='noResult'>No albums found matching ". $term ."</span>";
+        echo "</span class='noResults'>No albums found matching ". $term ."</span>";
     }
 	while ($row = mysqli_fetch_array($albumQuery)) {
 		echo "<div class='gridViewItem'>
