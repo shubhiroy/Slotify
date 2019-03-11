@@ -37,7 +37,7 @@ $album = new Album($con,$albumId);
 							<span class='artistName'>" .  $song->getArtist() . "</span>
 						</div>
 						<div class='trackOption'>
-							<img src='assets/images/icons/more.png' alt='Track Option Button'>
+							<img src='assets/images/icons/more.png' alt='Track Option Button' onclick='showMenu(this)'>
 						</div>
 						<div class='trackDuration'>" . $song->getDuration() . "</div>
 					  </div>";
@@ -54,5 +54,12 @@ $album = new Album($con,$albumId);
 
 	</ul>
 </div>
+
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<div class="item">Add to playlist</div>
+	<div class="item">Item 2</div>
+	<div class="item">Item 3</div>
+</nav>
 
 

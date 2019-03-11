@@ -53,6 +53,18 @@ function deletePlaylist(playlistId){
     }
 }
 
+function showMenu(button){
+    let menu = $(".optionsMenu");
+    let menuWidth = menu.width();
+    let scrollTop = $(window).scrollTop();
+    let elementOffset = $(button).offset().top;
+    let top = elementOffset - scrollTop;
+
+    let left = $(button).position().left - menu.width() - 4;
+
+    menu.css({"top":top + "px", "left":left + "px", "display":"inline"});
+}
+
 class Audio {
     constructor() {
         this.currentlyPlaying;
