@@ -39,6 +39,20 @@ function createPlaylist(){
     }
 }
 
+function deletePlaylist(playlistId){
+    var res = confirm("Are you sure you want to delete the playlist ?");
+    if(res){
+        $.post("includes/handlers/ajax/deletePlaylistJson.php",{playlistId:playlistId})
+        .done(function(err){
+            if(err=="false"){
+                alert("Sorry, Unable to delete the playlist.");
+            }else{
+                openURL("yourMusic.php");
+            }
+        });
+    }
+}
+
 class Audio {
     constructor() {
         this.currentlyPlaying;

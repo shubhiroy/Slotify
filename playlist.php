@@ -9,6 +9,7 @@ if(isset($_GET['id'])){
 $playlist = new Playlist($con,$playlistId);
 ?>
 
+
 <div class="entityInfo">
 	<div class="leftSection">
         <div class="playlistImage">
@@ -18,7 +19,8 @@ $playlist = new Playlist($con,$playlistId);
 	<div class="rightSection">
 		<h2> <?php echo $playlist->getPlaylistName(); ?> </h2>
 		<p> <?php echo "By " . $playlist->getPlaylistOwner(); ?> </p>
-		<p> <?php echo $playlist->getTotalSongs() . " songs"; ?> </p>
+        <p> <?php echo $playlist->getTotalSongs() . " songs"; ?> </p>
+        <button class="button" onclick="deletePlaylist(<?php echo $playlistId; ?>)">DELETE PLAYLIST</button>
 	</div>
 </div>
 
