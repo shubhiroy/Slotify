@@ -583,3 +583,9 @@ body {
     border-radius: 10px;
     padding: 20px;
 }
+
+.userDetails .container .message{
+    display: block;
+    color: #2ebd59;
+    font-weight: 300;
+}
