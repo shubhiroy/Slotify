@@ -106,6 +106,14 @@ function removeFromPlaylist(element,playlistId){
     hideMenu();
 }
 
+function updateEmail(emailClass){
+    var emailVal = $("." + emailClass).val();
+    $.post("includes/handlers/ajax/updateEmailJson.php",{email:emailVal,username:userLoggedIn})
+    .done(function(response){
+        $("." + emailClass).nextAll(".message").text(response);
+    });
+}
+
 class Audio {
     constructor() {
         this.currentlyPlaying;
