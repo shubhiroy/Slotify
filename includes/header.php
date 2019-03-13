@@ -28,7 +28,7 @@ else {
 </head>
 
 <body>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$(function(){
 			function callback () {
 				var audioElement = new Audio();
@@ -38,7 +38,7 @@ else {
 			window.addEventListener("load", callback, false);
 
 		});
-	</script>
+	</script> -->
 	<div id="mainContainer">
 
 		<div id="topContainer">

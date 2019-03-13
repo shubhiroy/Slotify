@@ -26,7 +26,8 @@
 			</div>
 
 			<div class="navItem">
-				<span role="link" tabindex="0" onclick=openURL('settings.php') class="navItemLink">Reece Kenney</span>
+				<span role="link" tabindex="0" onclick=openURL('settings.php') class="navItemLink"><?php   $userLoggedIn = $_SESSION['userLoggedIn'];
+        			$user = new User($con,$userLoggedIn);	echo $user->getFullName(); ?></span>
 			</div>
 		</div> 
 	</nav>
