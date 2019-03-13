@@ -5,5 +5,5 @@
     <div class="userInfo" ><?php  echo $user->getFullName(); ?></div>
     </div>
     <div class="button">USER DETAILS</div>
-    <div class="button green">LOG OUT</div>
+    <div class="button red" onclick="logout()">LOG OUT</div>
 </div> 

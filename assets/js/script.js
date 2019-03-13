@@ -23,6 +23,14 @@ $(document).on("change","select.playlist",function(){
     hideMenu();
 });
 
+
+function logout(){
+    $.post("includes/handlers/ajax/logoutJson.php")
+    .done(function(){
+        location.reload();
+    });
+}
+
 function openURL(url) {
 
     // if(timer != null){

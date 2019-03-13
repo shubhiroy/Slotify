@@ -550,7 +550,7 @@ body {
     text-align: center;
 }
 
-.entityInfo .button.green{
+.entityInfo .button.red{
     background-color: #EC0505;
     border-color: #EC0505;
 }
