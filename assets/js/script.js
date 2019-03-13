@@ -90,8 +90,10 @@ function removeFromPlaylist(element,playlistId){
     let songId = $(".removePlaylistSong").prev(".songId").val();
     $.post("includes/handlers/ajax/removePlaylistSongJson.php",{playlistId:playlistId,songId:songId})
     .done(function(err){
-        alert(err);
         openURL("playlist.php?id="+playlistId);
+        $(document).ready(function(){
+            alert(err);
+        });
     });
     hideMenu();
 }
