@@ -534,3 +534,23 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+
+/* ************ PROFILE PAGE  *************** */
+
+.entityInfo .userInfo{
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 40px;
+    font-size: 50px;
+}
+
+.entityInfo .button{
+    width: 50px;
+    margin: 0 auto 15px auto;
+    text-align: center;
+}
+
+.entityInfo .button.green{
+    background-color: #EC0505;
+    border-color: #EC0505;
+}
