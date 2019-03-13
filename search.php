@@ -55,7 +55,8 @@ $(function(){
 							<span class='artistName'>" .  $song->getArtist() . "</span>
 						</div>
 						<div class='trackOption'>
-							<img src='assets/images/icons/more.png' alt='Track Option Button'>
+                            <input type='hidden' class='songId' value='".  $song->getId() ."'>
+                            <img src='assets/images/icons/more.png' alt='Track Option Button' onclick='showMenu(this)'>
 						</div>
 						<div class='trackDuration'>" . $song->getDuration() . "</div>
 					  </div>";
@@ -113,3 +114,11 @@ $(function(){
 	}
 	?>
 </div> 
+
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<?php  echo Playlist::getPlaylistDropdown($con,$user->getUsername()); ?>
+	<div class="item">Item 2</div>
+	<div class="item">Item 3</div>
+	
+</nav>

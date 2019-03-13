@@ -9,6 +9,19 @@ var shuffle = false;
 var timer;
 var userLoggedIn;
 
+$(window).scroll(function(){
+    hideMenu();
+});
+
+$(document).on("change","select.playlist",function(){
+    let playlistId = $(this).val();
+    let songId = $(this).prev(".songId").val();
+    $.post("includes/handlers/ajax/addToPlaylistJson.php",{playlistId:playlistId,songId:songId})
+    .done(function(err){
+        alert(err);
+    });
+    hideMenu();
+});
 
 function openURL(url) {
 
@@ -54,15 +67,33 @@ function deletePlaylist(playlistId){
 }
 
 function showMenu(button){
+    let songId = $(button).prevAll(".songId").val();
     let menu = $(".optionsMenu");
     let menuWidth = menu.width();
     let scrollTop = $(window).scrollTop();
     let elementOffset = $(button).offset().top;
     let top = elementOffset - scrollTop;
-
     let left = $(button).position().left - menu.width() - 4;
-
+    
+    menu.find(".songId").val(songId);
     menu.css({"top":top + "px", "left":left + "px", "display":"inline"});
+}
+
+function hideMenu(){
+    let menu = $(".optionsMenu");
+    if(menu.css("display") != "none"){
+        menu.css({"display":"none"});
+    }
+}
+
+function removeFromPlaylist(element,playlistId){
+    let songId = $(".removePlaylistSong").prev(".songId").val();
+    $.post("includes/handlers/ajax/removePlaylistSongJson.php",{playlistId:playlistId,songId:songId})
+    .done(function(err){
+        alert(err);
+        openURL("playlist.php?id="+playlistId);
+    });
+    hideMenu();
 }
 
 class Audio {

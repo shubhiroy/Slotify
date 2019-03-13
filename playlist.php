@@ -41,7 +41,8 @@ $playlist = new Playlist($con,$playlistId);
 							<span class='artistName'>" .  $playlistSong->getArtist() . "</span>
 						</div>
 						<div class='trackOption'>
-							<img src='assets/images/icons/more.png' alt='Track Option Button'>
+							<input type='hidden' class='songId' value='".  $playlistSong->getId() ."'>
+							<img src='assets/images/icons/more.png' alt='Track Option Button' onclick='showMenu(this)'>
 						</div>
 						<div class='trackDuration'>" . $playlistSong->getDuration() . "</div>
 					  </div>";
@@ -58,3 +59,11 @@ $playlist = new Playlist($con,$playlistId);
 
 	</ul>
 </div>
+
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<!-- <?php  echo Playlist::getPlaylistDropdown($con,$user->getUsername()); ?> -->
+	<div class="item removePlaylistSong" onclick='removeFromPlaylist(this,<?php  echo $playlistId; ?>)'>Remove From Playlist</div>
+	<div class="item">Item 3</div>
+	
+</nav>
