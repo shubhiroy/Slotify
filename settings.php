@@ -4,6 +4,6 @@
     <div class="centerSection">
     <div class="userInfo" ><?php  echo $user->getFullName(); ?></div>
     </div>
-    <div class="button">USER DETAILS</div>
+    <div class="button" onclick="openURL('profile.php')">USER DETAILS</div>
     <div class="button red" onclick="logout()">LOG OUT</div>
 </div> 

@@ -535,7 +535,7 @@ body {
     -moz-appearance: none;
 }
 
-/* ************ PROFILE PAGE  *************** */
+/* ************ SETTINGS PAGE  *************** */
 
 .entityInfo .userInfo{
     text-align: center;
@@ -553,4 +553,33 @@ body {
 .entityInfo .button.red{
     background-color: #EC0505;
     border-color: #EC0505;
+}
+
+
+/* *************** PROFILE PAGE ************ */
+
+.userDetails{
+    padding: 20px;
+}
+
+.userDetails .container h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+.userDetails .container input[type="email"],
+.userDetails .container input[type="password"],
+.userDetails .container button{
+    display: block;
+    margin: 15px auto;
+}
+
+.userDetails .container input[type="email"],
+.userDetails .container input[type="password"]{
+    width: 100%;
+    height: 50px;
+    background: #1f1f1f;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
 }

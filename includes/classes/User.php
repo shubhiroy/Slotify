@@ -13,12 +13,18 @@
 			return $this->userLoggedIn;
 		}
 
+		public function getEmail(){
+			$query = "Select email from users where username = '$this->userLoggedIn'";
+			$result = mysqli_query($this->con,$query);
+			$resultArr = mysqli_fetch_array($result);
+			return $resultArr['email'];
+		}
+
 		public function getFullName(){
 			$query = "Select concat(firstName,' ',lastName) as name from users where username = '$this->userLoggedIn'";
 			$result = mysqli_query($this->con,$query);
 			$resultArr = mysqli_fetch_array($result);
 			return $resultArr['name'];
-			// $resultArr['name']
 		}
 	}
 ?>
