@@ -11,12 +11,12 @@ if(isset($_POST['email']) && isset($_POST['username'])){
         exit();
     }
 
-    // $query = "Select email from users where username != '$username' and email = '$email'";
-    // $result = mysqli_query($con,$query);
-    // if(mysqli_num_rows($result) > 0){
-    //     echo "ERROR : Email address is already linked with another id.";
-    //     exit();
-    // }
+    $query = "Select email from users where username = '$username' and email = '$email'";
+    $result = mysqli_query($con,$query);
+    if(mysqli_num_rows($result) > 0){
+        echo "ERROR : Email address is same as old email address.";
+        exit();
+    }
 
     $query = "Select email from users where username != '$username' and email = '$email'";
     $result = mysqli_query($con,$query);
@@ -25,8 +25,8 @@ if(isset($_POST['email']) && isset($_POST['username'])){
         exit();
     }
 
-
-    $query = "UPDATE users SET email = '$email' where username == '$username'";
+   // update users set email = 'b@b.com' WHERE username = 'shubhi'
+    $query = "UPDATE users SET email = '$email' where username = '$username'";
     $result = mysqli_query($con,$query);
     if($result){
         echo "Update successful.";
