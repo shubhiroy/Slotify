@@ -33,9 +33,9 @@ function logout(){
 
 function openURL(url) {
 
-    // if(timer != null){
-    //     clearTimeout(timer);
-    // }
+    if(timer != null){
+        clearTimeout(timer);
+    }
 
     if (url.indexOf("?") == -1) {
         url = url + "?";
