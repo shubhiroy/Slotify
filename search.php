@@ -11,10 +11,13 @@ if(isset($_GET['term'])){
 
 <div class="searchContainer">
 <h4>Search for songs, artists or albums</h4>
-<input type="text" class="searchInput" placeholder="Start Typing ... " value="<?php echo $term; ?>" onfocus="this.value = this.value">
+<input type="text" class="searchInput" placeholder="Start Typing ... " value="<?php echo $term; ?>" onfocus="setFocus(this)">
 </div>
 
 <script>  
+function setFocus(el){
+    el.selectionStart = el.selectionEnd = el.value.length
+}
 $(".searchInput").focus();
 $(function(){
     $(".searchInput").keyup(function(){
