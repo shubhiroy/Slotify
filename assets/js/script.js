@@ -107,10 +107,20 @@ function removeFromPlaylist(element,playlistId){
 }
 
 function updateEmail(emailClass){
-    var emailVal = $("." + emailClass).val();
+    let emailVal = $("." + emailClass).val();
     $.post("includes/handlers/ajax/updateEmailJson.php",{email:emailVal,username:userLoggedIn})
     .done(function(response){
         $("." + emailClass).nextAll(".message").text(response);
+    });
+}
+
+function updatePassword(passwordClass){
+    let oldPass = $("." + passwordClass).val();
+    let newPass = $("." + passwordClass).nextAll(".newPassword").val();
+    let confPass = $("." + passwordClass).nextAll(".newPassword2").val();
+    $.post("includes/handlers/ajax/updatePasswordJson.php",{oldPass:oldPass,newPass:newPass,confPass:confPass,username:userLoggedIn})
+    .done(function(response){
+        $("." + passwordClass).nextAll(".message").text(response);
     });
 }
 
